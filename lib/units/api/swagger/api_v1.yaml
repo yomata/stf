@@ -222,6 +222,14 @@ paths:
           description: Fields query parameter takes a comma seperated list of fields. Only listed field will be return in response
           required: false
           type: string
+        - name: filter
+          in: query
+          description: |
+            An optional query parameter to filter the results. You can filter the response by model, name, serial, operator, version, manufacturer, sdk, imei, and status. The filter values must exactly match. For example to retrieve the devices for the manufacturer "SONY", use /api/v1/devices/?filter=manufacturer:SONY for the filter query parameter.
+            Use the ampersand (&) to combine filters. For example, to return both operators "KDDI" and "DOCOMO" of the devices, combine these filters:
+            filter=operator:KDDI&filter=operator:DOCOMO
+          required: false
+          type: string
       responses:
         "200":
           description: List of Devices
